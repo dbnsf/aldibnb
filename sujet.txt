@@ -1,0 +1,60 @@
+-CONSIGNES-
+■ Pour ce projet, je vous propose de répondre aux besoins de notre
+client : AldiB’n’B
+■ Notre client veut développer une plateforme pour permettre à des
+particuliers de mettre en location leur appartement de façon
+saisonnière
+■ Les guests auront la possibilité de commenter les appartements
+afin de partager leur expérience auprès des autres utilisateurs
+
+
+-FONCTIONNALITES-
+■ Pour que tout fonctionne, votre application
+devra intégrer les fonctionnalités suivantes :
+– La possibilité de s’inscrire et de se
+connecter comme utilisateur
+– La possibilité pour les utilisateurs
+inscrits de pouvoir poster des
+annonces et des commentaires qui
+seront en attente de modération avant
+leur publication
+– Il faudra également créer un rôle en
+charge de modérer ces annonces et
+ces commentaires
+– Faites un plugin dont les options sont
+gérables depuis le backoffice (un truc
+pour afficher une bannière promo par
+exemple)
+– Idéalement, il devrait aussi être
+possible de trier / chercher les
+annonces par prix, zone…
+
+-CONTRAINTES- 
+■ Le projet doit être fait sur une base
+WordPress montée avec une stack Docker
+■ Vous devrez créer un thème complet pour ce
+projet et externaliser toute la logique qui
+vous semble pertinente à réutiliser dans
+d’autres thèmes dans des plugins
+■ Pensez à créer un dump SQL qui initialise le
+contenu de la DB au montage des
+containers pour pouvoir facilement passer le
+projet prêt à l’emploi
+■ Utilisez une MariaDB (pas de MYSQL,
+l’image n’est pas encore dispo sur Mac M1,
+donc je peux pas monter cette image)
+■ Pensez à créer un Readme
+
+-BAREME-
+■ Seront pris en compte pour la notation :
+– La présence des fonctions
+– La propreté de l’implémentation
+– L’esthétique et les responsivité de l’app
+(c’est le moment de refaire de belles
+choses)
+
+-GROUPES DE TRAVAIL ET RENDU- 
+■ Groupes de travail de 3 à 4 personnes
+■ Une soutenance par groupe se fera le 14 Mars
+2022
+■ Faite un rendu vers ce lien en parallèle
