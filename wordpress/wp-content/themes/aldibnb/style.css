@@ -28,7 +28,10 @@ p{
 a:link,  a:visited {
     text-decoration: none;
 }
+html :where(img){
 
+    max-width: none !important;
+}
 /* //// PAGINATION //// */
 .heading {
     font-size: 1.6rem;
@@ -235,8 +238,8 @@ nav{
     margin: 4rem 5vw;
     padding: 0;
     list-style-type: none;
-    row-gap:60px;
-    column-gap:60px;
+    row-gap: 60px;
+    column-gap: 60px;
   }
 .card {
     position: relative;
@@ -269,8 +272,6 @@ nav{
   }
   .card__header {
     position: relative;
-    display: flex;
-    align-items: center;
     padding: 1.25em;
     border-radius: calc(var(--curve) * 1px) 0 0 0;    
     background-color: var(--surface-color);
@@ -308,7 +309,10 @@ nav{
     overflow: hidden;
   }    
 
- 
+  .card_price-status{
+      display: flex;
+      justify-content: space-between;
+  }
  
 /* ///// FOOTER ///// */  
 footer{
@@ -334,8 +338,6 @@ footer{
 
 
 /* //// SINGLE //// */
-.single__container{
-}
 .img__container{
     height: 70vh;
 }

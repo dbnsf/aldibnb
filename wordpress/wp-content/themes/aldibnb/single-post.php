@@ -11,6 +11,7 @@
             <h2 class="card-title"><?php the_title(); ?></h2>
             <?php  echo '<p class="card-content">' . the_content() . '</p>' ?>
             <p class="card-text"><small class="text-muted">Ecrit le : <?php the_date(); ?></small></p>
+            <p class="card-text"><small class="text-muted">Auteur: <?php the_author(); ?></small></p>
         </div>
     </div>
     <?php endwhile; ?>
