@@ -1,5 +1,7 @@
 <?php
 //FUNCTIONS
+require_once 'classes/SponsoBox.php';
+$sponso= new SponsoBox('wpDIMS_sponso'); 
 
 function wpDIMS_clean_role(){
     $admin = get_role('administrator'); 
@@ -48,24 +50,45 @@ function wpDIMS_nav_menu_link_attributes($atts){
     return $atts; 
 }
 
-function wpDIMS_add_metabox(){
-    add_meta_box(
-        'sponso', 
-        'Contenu sponsorisé',
-        'wpDIMS_metabox_render', 
-        'post', 
-        'side'
-    ); 
+
+//----taxonomy
+function wpDIMS_register_booking_taxonomy(){
+    $labels = [
+        'name' => 'Type de location',
+        'singular_name' => 'Type de location', 
+        'search_items'=> 'Rechercher un type', 
+        'all_items' => 'Tous les types'
+    ]; 
+
+    $args = [
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true,
+        'show_in_rest' => true, 
+        'show_admin_column' => true
+    ];
+
+    register_taxonomy('type de location', ['post'], $args); 
+}
+function wpDIMS_register_type_taxonomy(){
+    $labels = [
+        'name' => 'Type de logement',
+        'singular_name' => 'Type de logement', 
+        'search_items'=> 'Rechercher un type', 
+        'all_items' => 'Tous les types'
+    ]; 
+
+    $args = [
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true,
+        'show_in_rest' => true, 
+        'show_admin_column' => true
+    ];
+
+    register_taxonomy('type de logement', ['post'], $args); 
 }
 
-function wpDIMS_save_metabox($post_id){
-    if($_POST['sponso'] === 'true'){
-        update_post_meta($post_id, 'wpDIMS_sponso', 'true'); 
-    }
-    else {
-        delete_post_meta($post_id, 'wpDIMS_sponso'); 
-    }
-}
 
 //ACTIONS
 
@@ -73,30 +96,18 @@ add_action('switch_theme', 'wpDIMS_clean_role');
 add_action('after_switch_theme', 'wpDIMS_add_role'); 
 add_action('after_setup_theme', 'wpDIMS_theme_support');
 add_action('wp_enqueue_scripts', 'wpDIMS_stylesheets'); 
-add_action('add_meta_boxes', 'wpDIMS_add_metabox'); 
-add_action('save_post', 'wpDIMS_save_metabox'); 
+add_action('init', 'wpDIMS_register_type_taxonomy');
+add_action('init', 'wpDIMS_register_booking_taxonomy');
+add_action('after_switch_theme', function(){
+    wp_insert_term('log', 'type de logement');
+    wp_insert_term('loc', 'type de location'); 
+    flush_rewrite_rules(); 
+ 
+});
+
 
 //FILTERS
 
 add_filter('login_headerurl', 'wpDIMS_change_header_url_login');
 add_filter('admin_footer_text', 'wpDIMS_change_footer_text'); 
 
-
-function wpDIMS_metabox_render(){
-    $checked = (get_post_meta(get_the_ID(), 'wpDIMS_sponso', true));  ?>
-    <input type="checkbox" value="true" name="sponso" id="sponso" <?= $checked ? 'checked' : null ?>/>
-    <label for="sponso">Contenu sponso ?</label>
-    <?php 
-}
-
-/* add_action('save_post', 'wpheticMetaBoxSave'); 
-
-function wpheticMetaBoxSave($post_ID){
-    if($_POST['sponso'] === 'true') {
-        update_post_meta($post_ID, 'wpheticSponso', 'true');
-    }
-    else {
-        delete_post_meta($post_ID, 'wpheticSponso'); 
-    }
-} */
-//vardump fun_get_args
