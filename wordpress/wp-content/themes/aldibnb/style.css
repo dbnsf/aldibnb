@@ -180,15 +180,24 @@ nav{
     border-radius:5px;
     box-sizing: border-box;
     transition: .2s ease-in-out;
+    
+  }
+.active{
+    background: linear-gradient(90deg, rgba(234,205,163,1) 0%, rgba(214,174,123,1) 100%);
+    color: rgb(244, 244, 244);
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius:5px;
+    box-sizing: border-box;
+    transition: .2s ease-in-out;
   }
 .topnav a:hover {
     color: var(--color-title-hover);
   }
-.topnav a.active {
-    background: linear-gradient(90deg, rgba(234,205,163,1) 0%, rgba(214,174,123,1) 100%);
-    color: rgb(244, 244, 244);
-    font-weight: bold;
-  }
+
 .topnav a.active:hover {
     background-color:   var(--color-title);
 }
@@ -214,6 +223,12 @@ nav{
     background-color: #14202D;
   }
 
+/* //// MENU //// */
+.topnav > ul{
+    display: flex;
+    padding: 14px 16px;
+
+}
 
 
 /* //// MAIN //// */
