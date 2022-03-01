@@ -3,12 +3,15 @@
 <?php if (have_posts()) : ?>
 
     <?php while (have_posts()) : the_post(); ?>
-    <div class="card-mb-3">
+    <div class="single__container">
+        <div class="img__container">
         <img src="<?php the_post_thumbnail_url(); ?>" alt="img" class="card-img-top" />
+        </div>
         <div class="card-body">
-            <h5 class="card-title"><?php the_title(); ?></h5>
-            <p class="card-text"><?php the_content(); ?></p>
+            <h2 class="card-title"><?php the_title(); ?></h2>
+            <?php  echo '<p class="card-content">' . the_content() . '</p>' ?>
             <p class="card-text"><small class="text-muted">Ecrit le : <?php the_date(); ?></small></p>
+            <p class="card-text"><small class="text-muted">Auteur: <?php the_author(); ?></small></p>
         </div>
     </div>
     <?php endwhile; ?>

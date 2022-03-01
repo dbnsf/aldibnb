@@ -1,6 +1,7 @@
-<nav class="navbar navbar-light bg-light">
-    <inp class="container-fluid">
-        <a class="navbar-brand">AldiB'n'b</a>
+<nav>
+<a class="active">WAldiB'n'B</a>
+
+    <div class="topnav">
         <?php
         wp_nav_menu([
             'theme_location' => 'header',
@@ -8,6 +9,11 @@
             'container' => false
         ]);
         ?>
-
+    </div>
+    <div>
+        <div class="topnav">
+            <a href="#login" class="login">Login</a>
+            <a href="#signup" class="signup">Sign up</a>
         </div>
-</nav>
+    </div>
+  </nav>

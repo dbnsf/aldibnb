@@ -1,9 +1,17 @@
-<div class="card">
-    <img src="<?php the_post_thumbnail_url() ?>" class="card-img-top" alt="...">
-    <div class="card-body">
-        <p><small><?php the_terms(get_the_ID(), 'type de logement'); ?></small></p>
-        <h5 class="card-title"><?php the_title(); ?></h5>
-        <p class="card-text"><?php the_excerpt(); ?></p>
-        <a href="<?php the_permalink(); ?>" class="btn btn-primary"> Lire Plus </a>
-    </div>
-</div>
+<li>
+                  <a href="<?php the_permalink(); ?>" class="card">
+                    <img src="<?php the_post_thumbnail_url()?>" class="card__image" alt="" />
+                    <div class="card__overlay">        
+                      <div class="card__header">
+                        <div class="card__header-text">
+                          <h3 class="card__title"><?php the_title(); ?></h3>
+                          <div class="card_price-status">
+                          <span class="card__status"><?php the_author(); ?></span>
+                          <span class="card__status">200euros</span>
+                          </div>
+                        </div>
+                      </div>
+                      <?php  echo '<p class="card__description">' . get_the_excerpt() . '</p>' ?>;
+                    </div>
+                  </a>
+                </li>
