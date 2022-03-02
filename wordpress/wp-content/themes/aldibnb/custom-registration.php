@@ -38,9 +38,7 @@ if ($_POST) {
     }
 
     if (count($error) == 0) {
-
-        wp_create_users($username, $password, $email);
-        print_r($username);
+        wp_create_user($username, $password, $email);
         echo "User Created Successfully";
         exit();
     }else{
@@ -70,7 +68,7 @@ if ($_POST) {
 
         <p>
         <label for="txtUsername">Enter username</label>
-        <input type="text" name="textUsername" id="txtUsername">
+        <input type="text" name="txtUsername" id="txtUsername">
         </p>
 
         <p>
