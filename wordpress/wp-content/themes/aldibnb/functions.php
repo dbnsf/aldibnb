@@ -111,3 +111,4 @@ add_filter('login_headerurl', 'wpDIMS_change_header_url_login');
 add_filter('admin_footer_text', 'wpDIMS_change_footer_text'); 
 
 
+//COMMENTS

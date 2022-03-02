@@ -14,9 +14,15 @@
             <p class="card-text"><small class="text-muted">Auteur: <?php the_author(); ?></small></p>
         </div>
     </div>
-    <?php endwhile; ?>
+    <?php // If comments are open or we have at least one comment
+        if ( comments_open() || get_comments_number() ) :
+            comments_template();
+        endif;  ?>
 
+    <?php endwhile; ?>
     <?php else : ?>
         <h2>Pas de posts :( </h2>
 <?php endif;  ?>
+
+        
 <?php get_footer();  ?>
