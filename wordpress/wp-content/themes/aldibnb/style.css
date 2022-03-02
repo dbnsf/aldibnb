@@ -348,8 +348,11 @@ footer{
     }
 
 
-
-
+/* /// FORM /// */
+.form{
+    height: 80vh;
+    top: 300px;
+}
 
 
 /* //// SINGLE //// */
