@@ -1,4 +1,10 @@
-<div>
+<?php
+get_header(); ?>
+
+
+<div class="comments-section">
+<hr id="hr" />
+
 <h2>Comments section</h2>
 <?php $args = array(
     'max_depth'         => '5',

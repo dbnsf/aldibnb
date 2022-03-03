@@ -24,5 +24,4 @@
         <h2>Pas de posts :( </h2>
 <?php endif;  ?>
 
-        
 <?php get_footer();  ?>
