@@ -765,3 +765,37 @@ nav{
 }
 }
 
+/* //// CONNECTION FORM //// */
+
+.connectionFormContainer{
+    display: flex; 
+    height: 60vh;
+    width: 100%;
+    justify-content: center; 
+    background-color:rgb(244, 244, 244);  
+  
+}
+
+.connection_form{
+    margin-top: 5%;
+    padding: 10px;
+    background-color:#cfac9f;
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-size: 20px; 
+    border-radius: 3%;
+}
+
+.emailInput{
+    padding: 3%;
+    margin: 3%;
+}
+
+.passwordInput{
+    padding: 3%;
+    margin: 3%
+}
+
+.passwordConfirmationInput{
+    padding: 3%;
+    margin: 3%;
+}
