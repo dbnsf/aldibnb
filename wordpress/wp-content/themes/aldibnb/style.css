@@ -5,7 +5,7 @@ Description: Airbnb like theme.
 Version: 1.0.0
 //NE PAS OUBLIER DAJOUTER UNE CAPTURE DECRAN DU THEME UNE FOIS LE PROJET FINI//
 */
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Poppins:wght@300;700&display=swap');
 *{
     margin: 0;
     box-sizing: border-box;
@@ -19,14 +19,17 @@ Version: 1.0.0
   }  
 body{
     height: 100vh;
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: #fef8f8;
+    font-family: 'Cormorant Garamond', sans-serif;
+    background-color: white;
+    /* background-color: #fef8f8; */
+    /* 'Noto Sans JP',  */
 }
 p{
     font-weight: lighter;
 }
 a:link,  a:visited {
     text-decoration: none;
+    color: inherit;
 }
 html :where(img){
 
@@ -333,7 +336,7 @@ nav{
 footer{
     margin-top: 100px;
       height: 40vh;
-      background-color:#d6ae7b;
+      background-color:#1b1b1b;
     }
 .footer__container{
       height: 100%;
@@ -361,13 +364,15 @@ footer{
 }
 .card-body{
     padding: 5% 10% 0 10%;
+    width: 80%;
+
 }
 .card-body > h2 {
     color: var(--color-title);
     margin-bottom: 40px;
 }
 .card-body > p {
-    color: #a5949c;
+    color: #616161;
 }
 .card-img-top{
     
@@ -377,152 +382,197 @@ footer{
 }
 .card-text{
     margin-top: 30px;
+    color: #616161;
 }
 
 
+
+/* Images */
+    
+.img-responsive{display: block;max-width: 100%;height: auto;margin: 0px auto;}
+.img-circle { border-radius: 50%; }    
+    
 /* //// COMMENTS //// */
+
+textarea, input {border:1px solid #e4e4e4;}
+textarea {width:100%;}
+.comment-list, .children{list-style:none;}
+ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 .comments-area {
-    margin-top: 40px;
+    width: 80%;
+    padding: 5% 10% 0 10%
+}
+.comment-wrap {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
+    position:relative; }
+.comment-wrap .comments-title {
+    padding-top:60px;
+    font-family: 'Cormorant Garamond', serif !important;
+}
+.comments-title {
+    font-size: 3em;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+
+}
+.comment-wrap .comment-img { 
+    float: left; 
+    margin-right: 20px; 
+    padding-bottom:25px;
+}
+.comment-author {
+    text-align:left;
+    text-decoration: none;
+    text-decoration-color: none;
 }
 
-.comments-area h2.comments-title {
-    font-size: 25px;
-    margin-bottom: 20px;
+.comment-body > p {
+    color: #616161;
+
 }
-
-.comment-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.comment-reply {
+    font-family:  'Noto Sans JP', sans-serif;
+    text-transform: uppercase; 
+    font-size: 0.7em;
+    letter-spacing: 0.3em;
+    position:absolute;
+    top:0px;
+    right:0px;
+    padding:5px 5px;
+    transition: all 0.3s ease-in-out;
 }
-
-.comment-meta {
-    margin-bottom: 20px;
+.comment-reply:hover {
+    background: #cfac9f;
+    color: #faf9f7;
 }
-
-.comment-meta a {
-    color: #333;
+.comment-author,.comment-author a{font-size: 14px;text-transform: uppercase; letter-spacing: 2px;margin-bottom:2px;}
+.comment-date {
+    font-family:  'Noto Sans JP', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    display:block;
+    padding-bottom:7px;
+    padding-top:3px;
+    color: #cfac9f;
 }
-
-.comment-meta img {}
-
-.comment-author.vcard {
-    position: relative;
-    padding-left: 50px;
-}
-
-.comment-author.vcard img {
-    position: absolute;
-    left: 0;
-    top: 5px;
-}
-
-.comment-metadata {
-    margin-left: 50px;
-}
-
-.comments-area table {
-    border-left: 1px solid #dddd;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
-}
-
-.comments-area table td,
-.comments-area table th {
-    border-right: 1px solid #ddd;
-    border-top: 1px solid #ddd;
-    padding: 10px;
-}
-
-.comments-area th {
-    background: #278cc1;
-    color: #fff;
-}
-
-.comments-area dd {
-    margin-bottom: 15px;
-}
-
-.comments-area .comments-content ul,
-.comments-area .comments-content ol {
-    padding-left: 15px;
-}
-
-.comments-area .comment-content ul,
-.comments-area .comment-content ol {
-    padding-left: 15px;
-}
-
-.comment-reply-link {
-    background: #c9a8b9;
-    display: inline-block;
-    padding: 5px 20px;
-    color: #fff;
-    border-radius: 5px;
-}
-
-.comment-list li.comment {
-    margin-bottom: 30px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 30px;
-}
-
-.comment-metadata {
-    font-size: 80%;
-}
-
-.comment-reply-link {
-    margin-top: 10px;
-}
-
-.comment-list li ol.children {
-    padding-left: 50px;
-    margin: 0;
-    list-style: none;
-    margin-top: 25px;
-}
-
-.comment-list li ol.children ol.children {
-    padding-left: 20px;
-}
-
-.comment-list li.comment:last-child {
-    border-bottom: 0px solid;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
 .comment-respond {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #faf9f7;
+    padding: 48px 50px 50px;
+
+}
+
+.comment-reply-title {
+    font-size: 33px;
+    color: #1b1b1b;
+    line-height: 1.12em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    word-wrap: break-word;
+}
+.comment-form > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0 33px;
+    color: #616161;
+}
+#comment {
+    border: 1px solid transparent;
+
+}
+#comment:focus {
+   outline:none;
+}
+.depth-2 .comment-wrap {padding-left:30px;}
+.depth-3 .comment-wrap {padding-left:60px;}
+.depth-4 .comment-wrap {padding-left:90px;}
+.depth-5 .comment-wrap {padding-left:120px;}
+.depth-6 .comment-wrap {padding-left:150px;}
+.depth-7 .comment-wrap {padding-left:180px;}
+.depth-8 .comment-wrap {padding-left:210px;}
+.depth-9 .comment-wrap {padding-left:240px;}
+.depth-10 .comment-wrap {padding-left:270px;}
+#commentform #comment,#commentform #author,#commentform #email,#commentform #url{display:block;width:100%;}
+#commentform input[type="submit"]{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid #e4e4e4;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: #fff;
+    margin-top:15px;
+    transition: all 0.3s ease-in-out;
+}
+#commentform input[type="submit"]:hover {
+    background: #cfac9f;
+    color: #faf9f7;
+}
+.title-line{border-top: 1px dotted #ccc;display: block;max-width: 30%;margin: 0 auto 25px;}
+
+
+
+
+/* //// AUTHOR CARD //// */
+.author_bio_section {
     margin-top: 50px;
+    background-color: #faf9f7;
+    padding: 50px;
+    display: flex;
 }
 
-.comment-notes {
-    font-size: 90%;
-    margin-bottom: 40px;
+.author_details > .photo {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-right: 32px;
 }
 
-.comment-form label {
-    display: block;
-    margin-bottom: 10px;
+.author_name {
+   color: #1b1b1b;
+   font-size: 24px;
+   line-height: 1.16em;
+   font-weight: 500;
+   letter-spacing: .01em;
+   word-wrap: break-word;
 }
 
-.comment-form input,
-.comment-form textarea {
-    width: 100%;
-    margin-bottom: 20px;
+.author_description {
+    color: #616161;
+}
+.author_links {
+    font-family:  'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    line-height: 1.81em;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase; 
+   color: #cfac9f ; 
+   word-wrap: brak-word;
+   margin-bottom: 1em;
 }
 
-.comment-form input[type=submit] {
-    width: auto;
+/* Responsive */
+
+@media (max-width: 767px) {
+    .comment-list, .children { padding-left: 0px; }
+    .comment-wrap .comment-img { float: none;margin: 0px;width: 100%;padding-bottom: 0px; }
+    .comment-img>img { display: block;margin: 0px auto; }
+    .comment-author, .comment-author a, .comment-date { text-align:center; }
+    .depth-2 .comment-wrap,.depth-3 .comment-wrap,.depth-4 .comment-wrap,.depth-5 .comment-wrap,.depth-6 .comment-wrap,.depth-7 .comment-wrap,.depth-8 .comment-wrap,.depth-9 .comment-wrap,.depth-10 .comment-wrap {padding-left:0px;}
+    .comment-reply { position: relative; text-align: center; display: block; margin-top: 25px;}
 }
-.comments-section {
-    padding-bottom: 5em;
-    margin: 100px 50px;
-}
-#hr {
-    margin-bottom: 5em;
-}
- 
+    
+    
+
 
 /* /// RESPONSIVE /// */
 @media screen and (max-width: 1000px) {
@@ -566,7 +616,23 @@ nav{
 }
 
 
-
+@media screen and (max-width:724px){
+    .author_bio_section {
+        display: block !important;
+    }
+    .comments-area {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: left;
+    }
+    .card-body{
+        width: 100%;
+    
+    }
+    
+}
 
 @media screen and (max-width: 615px) {
 /* ///// HEADER ///// */
