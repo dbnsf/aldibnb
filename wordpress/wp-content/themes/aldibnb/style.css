@@ -676,13 +676,9 @@ nav{
     padding: 4% 5% 0 5%;
 }
 .cards{
-    display: grid;
     grid-template-columns:  repeat(auto-fit, minmax(200px, 1fr));
-    margin: 1em 5vw;
-    padding: 0;
-    list-style-type: none;
-    row-gap: 60px;
-    column-gap: 60px;
+    justify-content: left;
+    align-items: left;
   }
 }
 
