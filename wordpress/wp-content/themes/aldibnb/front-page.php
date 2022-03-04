@@ -17,9 +17,8 @@
 
   </header>
   <div class="main__title">
+            <h6>Popular choices</h6>
             <h1>Explore All Experiences</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et.</p>
         </div>
   <ul class="cards">
     <?php if (have_posts()) : ?>

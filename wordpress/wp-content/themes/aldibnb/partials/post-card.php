@@ -11,7 +11,7 @@
                           </div>
                         </div>
                       </div>
-                      <?php  echo '<p class="card__description">' . get_the_excerpt() . '</p>' ?>;
+                      <?php  echo '<p class="card__description">' . get_the_excerpt() . '</p>' ?>
                     </div>
                   </a>
                 </li>
