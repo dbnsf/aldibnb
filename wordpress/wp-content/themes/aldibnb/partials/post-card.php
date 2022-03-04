@@ -11,7 +11,8 @@
                           </div>
                         </div>
                       </div>
-                      <?php  echo '<p class="card__description">' . get_the_excerpt() . '</p>' ?>
+
+                      <?php  echo '<p class="card__description">' . substr(get_the_excerpt(),0, 110).' [...]' . '</p>' ?>
                     </div>
                   </a>
                 </li>

@@ -327,40 +327,56 @@ display: inline-block;
     transform: translateY(100%);
     transition: .2s ease-in-out;
   }
-  .card:hover .card__overlay {
+ 
+  .card:hover .card__overlay  {
     transform: translateY(0);
   }
+  .card:hover .card__title  {
+    color:#1b1b1b;
+  }
+  
+  .card:hover .card__status {
+    color:#1b1b1b;
+  }
+  
   .card__header {
     position: relative;
     padding: 1.25em;
-    background-color: var(--surface-color);
+    /* background-color: var(--surface-color); */
     transform: translateY(-100%);
     transition: .2s ease-in-out;
   }
-     
+
   .card:hover .card__header {
     transform: translateY(0);
+
   }
+
   .card__title {
     font-size: 1em;
     margin: 0 0 .3em;
-    color: var(--color-title);
+    color: white;
+    transition: all .2s ease-in-out;
   }
+
   .card__tagline {
     display: block;
     margin: 1em 0;
     font-size: .8em; 
-    color: #ababab;
+    color: #1b1b1b;
   }
   .card__status {
     font-size: .8em;
-    color: #ababab; 
-    
+    color: white;
+    transition: all .2s ease-in-out;
+
  }
   .card__description {
+      z-index: 9999;
     padding: 0 2em 2em;
     margin: 0;
-    color: #ababab;    display: -webkit-box;
+    color: #1b1b1b;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
