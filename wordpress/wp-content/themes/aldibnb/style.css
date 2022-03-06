@@ -107,7 +107,7 @@ header{
 /* //// FILTER //// */
 .header__filter{
     position:absolute;
-    top: 80vh;
+    top: 81vh;
     display: flex;
     justify-content: space-around;
     color: #212634;
