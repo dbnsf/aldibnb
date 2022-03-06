@@ -205,8 +205,8 @@ nav > img {
     transition: .2s ease-in-out;
   }
 .topnav a:hover {
-    color: var(--color-title-hover);
-  }
+    /* color: #cfac9f ;  */
+}
 
 .topnav a.active:hover {
     background-color:   var(--color-title);
@@ -232,6 +232,33 @@ nav > img {
     border-radius: 10%;
     background-color:#1b1b1b;
 }
+/* stroke */
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .4s ease-in-out;
+}
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+
 
 /* //// MENU //// */
 .topnav > ul{

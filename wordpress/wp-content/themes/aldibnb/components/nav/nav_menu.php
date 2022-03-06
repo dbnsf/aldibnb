@@ -1,4 +1,4 @@
-<nav>
+<nav class="stroke">
 <img src="<?php bloginfo('template_url'); ?>/assets/logo1.png">
 
 
