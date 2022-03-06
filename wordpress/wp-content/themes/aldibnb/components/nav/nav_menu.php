@@ -1,5 +1,6 @@
 <nav>
-<a class="active">WAldiB'n'B</a>
+<img src="<?php bloginfo('template_url'); ?>/assets/logo1.png">
+
 
     <div class="topnav">
         <?php
@@ -10,10 +11,10 @@
         ]);
         ?>
     </div>
-    <div>
+    <!-- <div>
         <div class="topnav">
             <a href="#login" class="login">Login</a>
             <a href="#signup" class="signup">Sign up</a>
         </div>
-    </div>
+    </div> -->
   </nav>

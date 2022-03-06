@@ -33,8 +33,6 @@
                   <li class="pagination-item">
                     <div href="#"><?php previous_posts_link( 'Précédent' ); ?></div>
                   </li>
-
-         
                   <li class="pagination-item">
                     <div href="#"><?php next_posts_link( 'Suivant' ); ?></div>
                   </li>

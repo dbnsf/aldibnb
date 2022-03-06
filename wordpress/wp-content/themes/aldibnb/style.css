@@ -70,7 +70,10 @@ justify-content: center;
 
 /* ///// HEADER ///// */
 header{
-    width: 100%;
+    width: 90%;
+    margin: 2% 1% 0% 5%;
+
+    /* margin: 0 auto; */
     height: 70vh;
     max-height: 70vh;
     background: #cfac9f;
@@ -104,7 +107,7 @@ header{
 /* //// FILTER //// */
 .header__filter{
     position:absolute;
-    top: 60vh;
+    top: 80vh;
     display: flex;
     justify-content: space-around;
     color: #212634;
@@ -166,20 +169,25 @@ header{
 
 /* //// NAV //// */
 nav{
-    color: rgb(244, 244, 244);
-    width: 100%;
-    height:10vh;
-    position: absolute;
+    width: 90% !important;
+    margin: 2% 1% 0% 5%;
     display: flex;
     justify-content: space-between;
-    padding: 2.5% 5% 0 5%;
+}
+nav > img {
+    width: 100px;
 }
 .topnav a {
-    color: rgb(244, 244, 244);
+    font-family: 'Noto Sans JP',  sans-serif;
+    color: #1b1b1b;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 11px;
+    line-height: 1.81em;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
     border-radius:5px;
     box-sizing: border-box;
     transition: .2s ease-in-out;
@@ -232,7 +240,6 @@ nav{
 
 }
 
-
 /* //// MAIN //// */
 .main__title{
     padding: 5%;
@@ -262,7 +269,7 @@ nav{
 
 }
 .main__title > h6::before {
-    margin: 0;
+margin: 0;
 padding: 0 15px;
 content: '';
 position: absolute;
