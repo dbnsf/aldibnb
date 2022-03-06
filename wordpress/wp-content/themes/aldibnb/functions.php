@@ -211,3 +211,11 @@ function wpb_author_info_box( $content ) {
         }
         add_action('customize_register', 'themeslug_theme_customizer');
 
+
+
+        // // First letter capitalize
+        // add_filter( 'the_content', 'prefix_big_letter' );
+ 
+        // function prefix_big_letter($content) {
+        //   return "<div class='wp_content'>$content</div>";
+        // }

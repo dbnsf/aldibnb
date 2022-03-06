@@ -35,6 +35,9 @@ html :where(img){
 
     max-width: none !important;
 }
+input:focus {
+    outline: none !important;
+}
 /* //// PAGINATION //// */
 .heading {
     font-size: 1.6rem;
@@ -487,7 +490,14 @@ footer{
     color: #616161;
     margin-bottom: 30px;
 }
-
+/* .wp_content p:first-child:first-letter { 
+    float: left; 
+    font-size: 75px; 
+    line-height: .7em; 
+margin: 0 15px 5px 0;
+    font-size: 110px;
+  }
+ */
 
 
 /* Images */
@@ -621,9 +631,47 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 }
 .title-line{border-top: 1px dotted #ccc;display: block;max-width: 30%;margin: 0 auto 25px;}
 
+/* //// REGISTRATION FORM //// */
+.registration__form {
+    padding-top: 1em;
+}
+.registration__input {
+    
+    width: 50%;
+    background-color: #faf9f7;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+    border-radius: 3px;
 
 
+}
 
+.registration__button {
+    margin-top: 1em;
+	border: 1px solid #1b1b1b;
+	background-color: #1b1b1b;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+    line-height: 1.67em;
+    font-weight: 500;
+	letter-spacing: .25em;
+	padding: 12px 45px;
+	text-transform: uppercase;
+	transition: all .3s ease-in-out;
+
+}
+
+
+.registration__button:hover {
+	cursor: pointer;
+	background-color: #1b1b1bd3;
+}
+
+.registration__button:focus {
+	outline: none;
+}
 /* //// AUTHOR CARD //// */
 .author_bio_section {
     margin-top: 50px;
@@ -675,10 +723,7 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 }
     
     
-/* //// REGISTRATION FORM //// */
-.registration__form {
-    padding-top: 2em;
-}
+
 
 /* /// RESPONSIVE /// */
 @media screen and (max-width: 1000px) {
