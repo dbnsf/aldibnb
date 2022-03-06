@@ -74,7 +74,7 @@ justify-content: center;
 /* ///// HEADER ///// */
 header{
     width: 90%;
-    margin: 2% 1% 0% 5%;
+    margin: 2% 1% 7% 5%;
 
     /* margin: 0 auto; */
     height: 70vh;
@@ -109,33 +109,34 @@ header{
 
 /* //// FILTER //// */
 .header__filter{
-    position:absolute;
-    top: 81vh;
     display: flex;
-    justify-content: space-around;
     color: #212634;
-    height: 10vh;
-    width: 60%;
-    background-color: rgb(244, 244, 244);
-    justify-content: space-around;
+    height: 13vh;
+    width: 75%;
+    background-color: #faf9f7;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-#search{
-    color: rgb(244, 244, 244);
+#search .form-control {
     text-align: center;
-    padding: 2vh 20px;
-    text-decoration: none;
-    font-size: 17px;
-    background-color: #cfac9f;
-    font-weight: bold;
-    transition: .2s ease-in-out;
-    border-radius:5px;
-    box-sizing: border-box;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #faf9f7 !important;
+	border: 1px solid #c9a8b9a4;
+	padding: 12px 15px;
+	margin: 8px 20px;
+    border-radius: 3px !important;
+    
+
+}
+.form-select {
+    text-align: center;
+    background-color: #faf9f7 !important;
+	border: 1px solid #c9a8b9a4;
+	padding: 12px 15px;
+	margin: 8px 20px;
+    border-radius: 3px !important;
+
 }
 #search:hover{
     cursor: pointer;
-    background-color: var(--color-title-hover);
 }
 .filter__container{
     width: 100%;
@@ -646,8 +647,7 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 
 
 }
-
-.registration__button {
+.registration__button  {
     margin-top: 1em;
 	border: 1px solid #1b1b1b;
 	background-color: #1b1b1b;
@@ -748,9 +748,7 @@ header{
 }
 /* //// FILTER //// */
 .header__filter{
-    position:absolute;
     top:40vh;
-    width: 100%;
 
 }
 

@@ -213,9 +213,17 @@ function wpb_author_info_box( $content ) {
 
 
 
-        // // First letter capitalize
-        // add_filter( 'the_content', 'prefix_big_letter' );
- 
-        // function prefix_big_letter($content) {
-        //   return "<div class='wp_content'>$content</div>";
-        // }
+// SEARCH POST FORM
+     function custom_search_form( $form, $value = "Search", $post_type = 'post' ) {
+            $form_value = (isset($value)) ? $value : attribute_escape(apply_filters('the_search_query', get_search_query()));
+            $form = '<form method="get" id="searchform" action="' . get_option('home') . '/" >
+            <div>
+                <input  type="hidden" name="post_type"  value="'.$post_type.'" />
+                <input class="form-control" type="text" value="' . $form_value . '" name="s" id="s" />
+                <input class="registration__button" type="submit" id="searchsubmit"  value="'.attribute_escape(__('Search')).'" />
+            </div>
+            </form>';
+            return $form;
+        }
+
+    

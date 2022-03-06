@@ -1,5 +1,5 @@
-<?php get_header();
-      get_template_part('components/nav/nav_filters');  
+
+    <?php get_header();
 ?>
 <header>
        <div class="header__main">
@@ -14,7 +14,9 @@
             <img class="header__image" src="https://images.unsplash.com/photo-1645627446035-d9ade996ae42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80" alt="">
         </div>
     </div>
-
+    <?php 
+      get_template_part('components/nav/nav_filters');  
+?>
   </header>
   <div class="main__title">
             <h6>Popular choices</h6>
