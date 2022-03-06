@@ -648,7 +648,10 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 }
     
     
-
+/* //// REGISTRATION FORM //// */
+.registration__form {
+    padding-top: 2em;
+}
 
 /* /// RESPONSIVE /// */
 @media screen and (max-width: 1000px) {

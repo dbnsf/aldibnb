@@ -53,9 +53,34 @@ if ($_POST) {
        <div class="header__main">
         <div class="header__titles">        
             <h1>Votre inscription en deux cliques</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et</p>
+
+            <form method="post" class="registration__form">
+
+                <div>
+                <label for="txtUsername">Enter username</label>
+                <input type="text" name="txtUsername" id="txtUsername">
+                </div>
+
+                <div>
+                <label for="txtEmail">Enter Email</label>
+                <input type="email" name="txtEmail" id="txtEmail">
+                </div>
+
+                <div>
+                <label for="txtPassword">Enter Password</label>
+                <input type="password" name="txtPassword" id="txtPassword">
+                </div>
+
+                <div>
+                <label for="txtConfirmPassword">Confirm Password</label>
+                <input type="password" name="txtConfirmPassword" id="txtConfirmPassword">
+                </div>
+
+
+                <input type="submit" name="btnSubmit">
+
+</form>
+    
         </div>
         <div class="header__image">
             <img class="header__image" src="https://images.unsplash.com/photo-1581677787971-4d36fd7a1d35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80" alt="">
@@ -63,35 +88,5 @@ if ($_POST) {
     </div>
 
   </header>
-<div class="form">
-    <form method="post">
 
-        <p>
-        <label for="txtUsername">Enter username</label>
-        <input type="text" name="txtUsername" id="txtUsername">
-        </p>
-
-        <p>
-        <label for="txtEmail">Enter Email</label>
-        <div>
-        <input type="email" name="txtEmail" id="txtEmail"></div>
-        </p>
-
-        <p>
-        <label for="txtPassword">Enter Password</label>
-        <div>
-        <input type="password" name="txtPassword" id="txtPassword"></div>
-        </p>
-
-        <p>
-        <label for="txtConfirmPassword">Confirm Password</label>
-        <div>
-        <input type="password" name="txtConfirmPassword" id="txtConfirmPassword"></div>
-        </p>
-
-
-        <input type="submit" name="btnSubmit">
-
-    </form>
-</div>
 <?php get_footer() ?>
