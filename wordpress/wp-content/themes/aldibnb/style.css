@@ -251,7 +251,7 @@ nav.fill ul li a:after {
   width: 0%;
   content: '.';
   color: transparent;
-  background: #aaa;
+  background: #1b1b1b;
   height: 1px;
 }
 nav.stroke ul li a:hover:after {
