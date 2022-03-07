@@ -1,19 +1,24 @@
 <?php get_header(); ?>
-<div class="container card-group">
 
-    <?php if (have_posts()) : ?>
-        <?php while (have_posts()) : ?>
-            <?php the_post(); ?>
-            <div class="card">
-                <img src="<?php the_post_thumbnail_url()?>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><?php the_title(); ?></h5>
-                    <p class="card-text"><?php the_excerpt(); ?></p>
-                    <a href="<?php the_permalink(); ?>" class="btn btn-primary"> Lire Plus </a>
-                </div>
-            </div>
+<?php if (have_posts()) : ?>
 
-<?php endwhile ?>
-<?php endif; ?>
-</div>
+    <?php while (have_posts()) : the_post(); ?>
+    <div class="single__container">
+        </div>
+        <img src="<?php the_post_thumbnail_url(); ?>" alt="img" class="card-img-template" />
+
+        <div class="card-body">
+            <h2 class="card-title"><?php the_title(); ?></h2>
+            <p class="card-text"><small class="text-muted">Ecrit le : <?php the_date(); ?></small></p>
+
+
+            <?php  echo '<p class="card-content">' . the_content() . '</p>' ?>
+    </div>
+
+
+    <?php endwhile; ?>
+
+<?php endif;  ?>
+
 <?php get_footer();  ?>
+

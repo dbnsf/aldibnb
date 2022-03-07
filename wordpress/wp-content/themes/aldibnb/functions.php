@@ -216,7 +216,7 @@ function wpb_author_info_box( $content ) {
 // SEARCH POST FORM
      function custom_search_form( $form, $value = "Search", $post_type = 'post' ) {
             $form_value = (isset($value)) ? $value : attribute_escape(apply_filters('the_search_query', get_search_query()));
-            $form = '<form method="get" id="searchform" action="' . get_option('home') . '/" >
+            $form = '<form method="get" id="searchform" action="' . get_option('search') . '/" >
             <div>
                 <input  type="hidden" name="post_type"  value="'.$post_type.'" />
                 <input class="form-control" type="text" value="' . $form_value . '" name="s" id="s" />

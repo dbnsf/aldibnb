@@ -23,10 +23,9 @@ body{
     background-color: white;
     /* background-color: #fef8f8; */
     /* 'Noto Sans JP',  */
+
 }
-p{
-    font-weight: lighter;
-}
+
 a:link,  a:visited {
     text-decoration: none;
     color: inherit;
@@ -96,6 +95,8 @@ header{
     font-size: 4rem;
     margin-bottom: 20px;
     word-break: normal;
+    -webkit-font-smoothing: antialiased;
+
     
 }
 
@@ -125,6 +126,12 @@ header{
     border-radius: 3px !important;
     
 
+}
+.search-title {
+    margin-bottom: 50px;
+}
+.search-cards {
+    margin-top: 50px !important;
 }
 .form-select {
     text-align: center;
@@ -285,6 +292,8 @@ nav.stroke ul li a:hover:after {
     line-height: 1.08em;
     font-weight: 500;
     letter-spacing: -.01em;
+    -webkit-font-smoothing: antialiased;
+
 }
 .main__title > h6 {
     position: relative;
@@ -296,6 +305,7 @@ nav.stroke ul li a:hover:after {
     transform: uppercase;
     word-wrap: break-word;
     font-family:  'Noto Sans JP', sans-serif;
+
    
 
 }
@@ -314,7 +324,7 @@ display: inline-block;
 
 }
 .main__title > h6::after {
-    margin: 0;
+margin: 0;
 padding: 0 15px;
 content: '';
 position: absolute;
@@ -403,6 +413,7 @@ display: inline-block;
     margin: 0 0 .3em;
     color: white;
     transition: all .2s ease-in-out;
+    
   }
 
   .card__tagline {
@@ -410,11 +421,14 @@ display: inline-block;
     margin: 1em 0;
     font-size: .8em; 
     color: #1b1b1b;
+    -webkit-font-smoothing: antialiased;
+
   }
   .card__status {
     font-size: .8em;
     color: white;
     transition: all .2s ease-in-out;
+    
 
  }
   .card__description {
@@ -426,6 +440,8 @@ display: inline-block;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+
   }    
 
   .card_price-status{
@@ -470,15 +486,19 @@ footer{
 }
 .card-body > h2 {
     color: #1b1b1b;
-    font-size: 3.5em;
+    font-size: 65px;
     line-height: 1.16em;
     font-weight: 500;
     letter-spacing: .01em;
     word-wrap: break-word;
-        /* margin-bottom: 40px; */
+    -webkit-font-smoothing: antialiased;
 }
 .card-body > p {
     color: #616161;
+    font-size: 21px;
+    line-height: 1.43em;
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
 }
 .card-img-top{
     margin-bottom: 30px;
@@ -544,6 +564,8 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 
 .comment-body > p {
     color: #616161;
+    font-size: 19px;
+
 
 }
 .comment-reply {
@@ -698,6 +720,9 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 
 .author_description {
     color: #616161;
+    font-size: 19px;
+    -webkit-font-smoothing: antialiased;
+
 }
 .author_links {
     font-family:  'Noto Sans JP', sans-serif;
@@ -711,6 +736,34 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
    margin-bottom: 1em;
 }
 
+
+
+
+/* //// TEMPLATE PAGE //// */
+
+.card-img-template {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+   margin: 2% 1% 2% 0%;
+}
+
+.wp-block-quote {
+    padding: 35px 0 35px 35px;
+}
+.wp-block-quote > p {
+
+    padding: 18px 0 20px 0;
+    font-size: 33px;
+    font-weight: 100;
+    line-height: 1.2em;
+    font-style: italic;
+    color: #8f7267;
+    quotes: none;
+    -webkit-font-smoothing: antialiased;
+
+
+}
 /* Responsive */
 
 @media (max-width: 767px) {
