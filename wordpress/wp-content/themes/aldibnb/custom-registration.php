@@ -73,7 +73,7 @@ if ($_POST) {
                 </div>
 
 
-                <input type="submit" name="btnSubmit" class="registration__button">
+                <input type="submit" name="btnSubmit" class="registration__button registration__annex">
 
 </form>
     

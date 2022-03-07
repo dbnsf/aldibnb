@@ -18,7 +18,6 @@ Version: 1.0.0
     --color-title-hover: #533f49;
   }  
 body{
-    height: 100vh;
     font-family: 'Cormorant Garamond', sans-serif;
     background-color: white;
     /* background-color: #fef8f8; */
@@ -84,6 +83,7 @@ header{
     color: rgb(244, 244, 244);
 }
 
+
 .header__main{
     padding: 0 0% 0 5%;
     display: flex;
@@ -107,7 +107,43 @@ header{
     padding-left: 2rem;
 
 }
+/* //// 404 ///// */
+.four_image {
+    margin: 2% 0% 0% 0%;
+    position: relative;
+    width: 100%;
+    max-height:86vh;
+    object-fit: cover;
+ }
+ 
+ .four__titles {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #e4e4e4;
+    
+ }
+ .four__titles > h1{
+     font-size: 120px;
 
+   
+ }
+ .four__titles > p{
+     font-size: 65px;
+     -webkit-font-smoothing: antialiased;
+
+ }
+ .four__button {
+     margin-top: 50px;
+ }
+ .four__header { 
+    display: flex;
+    align-items: center;
+    align-content: center;
+ }
 /* //// FILTER //// */
 .header__filter{
     display: flex;
@@ -670,7 +706,6 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 
 }
 .registration__button  {
-    margin-top: 1em;
 	border: 1px solid #1b1b1b;
 	background-color: #1b1b1b;
 	color: #FFFFFF;
@@ -684,11 +719,15 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 	transition: all .3s ease-in-out;
 
 }
+.registration__annex {
+    margin-top: 1em;
 
+}
 
 .registration__button:hover {
 	cursor: pointer;
-	background-color: #1b1b1bd3;
+    border: 1px solid #2e2e2e;
+	background-color: #2e2e2e;
 }
 
 .registration__button:focus {
