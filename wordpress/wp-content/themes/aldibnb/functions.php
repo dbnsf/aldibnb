@@ -56,7 +56,7 @@ function wpDIMS_register_booking_taxonomy(){
 
     $labels = [
         'name' => 'Type de location',
-        'singular_name' => 'Type de location', 
+        'singular_name' => 'type-location', 
         'search_items' => 'Rechercher un type', 
         'all_items' => 'Tous les types'
 
@@ -75,12 +75,12 @@ function wpDIMS_register_booking_taxonomy(){
         
     ];
 
-    register_taxonomy('type de location', ['post'], $args); 
+    register_taxonomy('type-location', ['post'], $args); 
 }
 function wpDIMS_register_type_taxonomy(){
     $labels = [
         'name' => 'Type de logement',
-        'singular_name' => 'Type de logement', 
+        'singular_name' => 'type-logement', 
         'search_items'=> 'Rechercher un type', 
         'all_items' => 'Tous les types'
     ]; 
@@ -94,7 +94,7 @@ function wpDIMS_register_type_taxonomy(){
         'show_in_rest'               => true,
         
     ];
-    register_taxonomy('type de logement', ['post'], $args); 
+    register_taxonomy('type-logement', ['post'], $args); 
 
 
 }
