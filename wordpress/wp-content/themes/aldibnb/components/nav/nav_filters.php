@@ -15,7 +15,6 @@
     }
     ?>
 </select>
-
                 </div>
                
                 <div class="filter__search-input">
@@ -40,3 +39,31 @@
             </ul>
         </div>
         </div>
+
+        <ul>
+<?php
+
+global $post;
+$album_title = $_GET['album-title'];
+$args = array(
+    'post_type' => 'post',
+    'posts_per_page' => 5,
+    'tax_query' => array( // NOTE: array of arrays!
+        array(
+            'taxonomy' => 'type de logement',
+            'field'    => 'name',
+            'terms'    => $album_title
+        )
+    )
+);
+
+$myposts = get_posts( $args );
+foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+    <li>
+        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+    </li>
+<?php endforeach; 
+wp_reset_postdata();?>
+
+</ul>
+

@@ -2,6 +2,7 @@
 //FUNCTIONS
 require_once 'classes/SponsoBox.php';
 $sponso= new SponsoBox('wpDIMS_sponso'); 
+global $wpdb;
 
 function wpDIMS_clean_role(){
     $admin = get_role('administrator'); 
@@ -50,21 +51,28 @@ function wpDIMS_nav_menu_link_attributes($atts){
 }
 
 
-//----taxonomy
+// ----taxonomy
 function wpDIMS_register_booking_taxonomy(){
+
     $labels = [
         'name' => 'Type de location',
         'singular_name' => 'Type de location', 
-        'search_items'=> 'Rechercher un type', 
+        'search_items' => 'Rechercher un type', 
         'all_items' => 'Tous les types'
+
     ]; 
 
     $args = [
-        'labels' => $labels,
-        'public' => true,
-        'hierarchical' => true,
-        'show_in_rest' => true, 
-        'show_admin_column' => true
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_in_rest'               => true,
+
+
+        
     ];
 
     register_taxonomy('type de location', ['post'], $args); 
@@ -76,17 +84,21 @@ function wpDIMS_register_type_taxonomy(){
         'search_items'=> 'Rechercher un type', 
         'all_items' => 'Tous les types'
     ]; 
-
     $args = [
-        'labels' => $labels,
-        'public' => true,
-        'hierarchical' => true,
-        'show_in_rest' => true, 
-        'show_admin_column' => true
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_in_rest'               => true,
+        
     ];
-
     register_taxonomy('type de logement', ['post'], $args); 
+
+
 }
+
 
 
 //ACTIONS
@@ -226,4 +238,5 @@ function wpb_author_info_box( $content ) {
             return $form;
         }
 
-    
+
+ 
