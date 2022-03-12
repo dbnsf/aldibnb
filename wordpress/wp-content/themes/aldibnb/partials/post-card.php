@@ -1,6 +1,8 @@
 <li>
   <?php
-  $post_price = get_post_meta(get_the_ID(), 'wpDIMS_price', true); ?>
+  $post_price = get_post_meta(get_the_ID(), 'wpDIMS_price', true);
+  $post_city = get_post_meta(get_the_ID(), 'wpDIMS_city', true); ?>
+
   <a href="<?php the_permalink(); ?>" class="card">
     <img src="<?php the_post_thumbnail_url() ?>" class="card__image" alt="" />
     <div class="card__overlay">
@@ -8,7 +10,12 @@
         <div class="card__header-text">
           <h3 class="card__title"><?php the_title(); ?></h3>
           <div class="card_price-status">
-            <span class="card__status post_author"><?php the_author(); ?></span>
+            <span class="card__status post_author"><?php the_author();
+                                                    if (get_post_meta(get_the_ID(), 'wpDIMS_city', true)) :
+                                                    ?>
+                • <?php echo $post_city ?>
+              <?php endif; ?>
+            </span>
             <?php if (get_post_meta(get_the_ID(), 'wpDIMS_price', true)) :
             ?>
               <span class="card__status post_price"><?php echo $post_price ?><sup>€</sup>/nuit</span>

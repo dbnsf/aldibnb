@@ -49,6 +49,7 @@ if ($_POST) {
                     <a href='/'>C'est parti !</a>
                 </div>
               </div>";
+              
         exit();
     } else {
 

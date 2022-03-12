@@ -6,6 +6,9 @@ $sponso= new SponsoBox('wpDIMS_sponso');
 require_once 'classes/Price.php';
 $price = new Price('wpDIMS_price');
 
+require_once 'classes/City.php';
+$price = new City('wpDIMS_city');
+
 global $wpdb;
 
 function wpDIMS_clean_role(){
