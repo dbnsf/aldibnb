@@ -52,7 +52,7 @@ if ($_POST) {
 <header>
        <div class="header__main">
         <div class="header__titles">        
-            <h1>Votre inscription en un clique</h1>
+            <h1>Votre inscription en un clic</h1>
 
             <form method="post" class="registration__form">
 

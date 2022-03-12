@@ -21,7 +21,7 @@ if ( $the_query->have_posts() ) {
     }else{
 ?>
         <div class='card-body search-title'>
-        <h2 class='card-title'>Aucun résultat de corréspond à votre recherche.</h2>
+        <h2 class='card-title'>Aucun résultat de correspond à votre recherche.</h2>
     </div>
 
 <?php } ?>
