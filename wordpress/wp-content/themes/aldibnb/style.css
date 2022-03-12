@@ -3,9 +3,8 @@ Theme Name: AldiB'n'b
 Author: DIMS
 Description: Airbnb like theme. 
 Version: 1.0.0
-//NE PAS OUBLIER DAJOUTER UNE CAPTURE DECRAN DU THEME UNE FOIS LE PROJET FINI//
 */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Poppins:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Poppins:wght@300;700&display=swap&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 *{
     margin: 0;
     box-sizing: border-box;
@@ -18,7 +17,7 @@ Version: 1.0.0
     --color-title-hover: #533f49;
   }  
 body{
-    font-family: 'Cormorant Garamond', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: white;
     /* background-color: #fef8f8; */
     /* 'Noto Sans JP',  */
@@ -430,6 +429,13 @@ display: inline-block;
   .card:hover .card__status {
     color:#1b1b1b;
   }
+  .card:hover .post_author {
+    color: #bbbbbb; 
+}
+
+.card:hover .post_price {
+    color: #cfac9f; 
+}
   
   .card__header {
     position: relative;
@@ -464,12 +470,18 @@ display: inline-block;
     font-size: .8em;
     color: white;
     transition: all .2s ease-in-out;
-    
-
  }
+
+.post_price {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
   .card__description {
       z-index: 9999;
-    padding: 0 2em 2em;
+    padding: 0 1.25em 1.25em;
     margin: 0;
     color: #1b1b1b;
     display: -webkit-box;
@@ -477,12 +489,15 @@ display: inline-block;
     -webkit-line-clamp: 3;
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
+    text-align: justify;
+    font-style: italic;
 
   }    
 
   .card_price-status{
       display: flex;
       justify-content: space-between;
+      align-items: center;
   }
  
 /* ///// FOOTER ///// */  
@@ -533,7 +548,7 @@ footer{
     color: #616161;
     font-size: 21px;
     line-height: 1.43em;
-    font-weight: 200;
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
 }
 .card-img-top{

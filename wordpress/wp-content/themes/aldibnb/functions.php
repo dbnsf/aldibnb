@@ -2,6 +2,10 @@
 //FUNCTIONS
 require_once 'classes/SponsoBox.php';
 $sponso= new SponsoBox('wpDIMS_sponso'); 
+
+require_once 'classes/Price.php';
+$price = new Price('wpDIMS_price');
+
 global $wpdb;
 
 function wpDIMS_clean_role(){
@@ -182,7 +186,7 @@ function wpb_author_info_box( $content ) {
     if ( ! empty( $user_description ) )
     // Author avatar, name, bio
 
-    // $author_details_out .= ' | <a href="' . $user_website .'" target="_blank" rel="nofollow">Website</a></p>';
+    // $author_details_out .= ' | <a href="' . $user_website .'" target="_blank" rel="nofollow">Website</a></>';
     $author_details_out .= '<p class="author_links"><a href="'. $user_posts .'">Toutes les annonces de ' . $display_name . '</a>';  
 
     $author_details .= '<p class="author_details">'. get_avatar( get_the_author_meta('user_email') , 90 ) . '<div>'. '<h5 class="author_name">' . $display_name . '</h5>' . $author_details_out  . '<p class="author_description">' . nl2br( $user_description ).   '</p></div>';
