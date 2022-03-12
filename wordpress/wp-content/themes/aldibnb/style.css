@@ -314,6 +314,10 @@ nav.stroke ul li a:hover:after {
   width: 100%;
 }
 
+.logo img {
+    width: 135px;
+    position: absolute;
+}
 
 
 /* //// MENU //// */

@@ -1,5 +1,5 @@
 <nav class="stroke">
-<img src="<?php bloginfo('template_url'); ?>/assets/logo1.png">
+<a class="logo" href="/"><img src="<?php bloginfo('template_url'); ?>/assets/logo1.png"></a>
 
 
     <div class="topnav">
