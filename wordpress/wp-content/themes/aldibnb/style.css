@@ -41,6 +41,10 @@ html :where(img){
 input:focus {
     outline: none !important;
 }
+
+._font-TuesdayNight {
+    font-family: TuesdayNight;
+}
 /* //// PAGINATION //// */
 .heading {
     font-size: 1.6rem;
@@ -536,14 +540,127 @@ footer{
 .img__container{
     height: 70vh;
 }
-.card-body{
-    padding: 5% 10% 0 10%;
+.single__container .card-body{
+    padding: 5% 20% 0 20%;
+    width: 100%;
+}
+
+.single__container .card-body .single__main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 45px;
+}
+
+.single__container .card-body .single__main .main_content {
     width: 80%;
+    padding-right: 25px;
 
 }
+
+.single__container .card-body .single__main .main_content .card-content .recap {
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--color-peachy);
+}
+
+
+.single__container .card-body .single__main .main_content .card-content p {
+    text-align: justify;
+}
+
+.single__container .card-body .single__main .main_content .card-content h3 {
+    margin: 25px 0 15px 0;
+}
+
+.single__container .card-body .single__main .sidebar {
+    width: 20%;
+    text-align: center;
+    color: white;
+}
+.single__container .card-body .single__main .sidebar .contact__content {
+    background-color: var(--color-peachy);
+    border-radius: 5px;
+    padding: 25px;
+    height: 210px;
+}
+
+.single__container .card-body .single__main .sidebar .contact__content div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+    transform: translate(0px, -56px);
+}
+.single__container .card-body .single__main .sidebar .contact__content div h4 {
+    font-weight: 400;
+    align-self: center;
+    transform: translate(0px, -30px);
+}
+.single__container .card-body .single__main .sidebar .contact__content div p {
+    transform: translate(0px, -17px);
+    margin-bottom: 11px;
+}
+
+.single__container .card-body .single__main .sidebar .contact__content div img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    align-self: center;
+}
+.single__container .card-body .single__main .sidebar .contact__content div ._font-TuesdayNight {
+    font-weight: 200;
+    font-size: 30px;
+}
+
+.single__container .card-body .single__main .sidebar .contact__content div a {
+    background-color: #b19084;
+    padding: 6px;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 1.81em;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    align-self: center;
+}
+
+.single__container .card-body .single__main .sidebar .price {
+    border-radius: 5px;
+    padding: 25px;
+    height: 100px;
+    margin-top: 35px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.single__container .card-body .single__main .sidebar .price span {
+   font-size: 48px;
+   color: white;
+}
+.single__container .card-body .single__main .sidebar .price ._font-TuesdayNight {
+    letter-spacing: 12px;
+}
+.single__container .card-body .single__main .sidebar .price .sub {
+    font-size: 11px;
+    font-family: Roboto;
+    letter-spacing: normal;
+} 
+
 .card-body > h2 {
     color: #1b1b1b;
-    font-size: 65px;
+    font-size: 30px;
     line-height: 1.16em;
     font-weight: 500;
     letter-spacing: .01em;
@@ -557,16 +674,18 @@ footer{
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
 }
-.card-img-top{
+.single__container .card-body .card-img-top{
     margin-bottom: 30px;
     width: 100%;
-    height: 100%;
+    height: 500px;
     object-fit: cover;
 }
 
-.card-text{
+.single__container .card-body .card-text{
     color: #616161;
     margin-bottom: 30px;
+    font-size: 15px;
+
 }
 /* .wp_content p:first-child:first-letter { 
     float: left; 
@@ -836,7 +955,6 @@ ul.children {list-style:none;padding-left:0px; margin-left:0px;}
 }
 
 .message_welcom .message_welcom__titles h3 ._font-TuesdayNight {
-    font-family: TuesdayNight;
     font-size: 45px;
     font-weight: 100;
 }
