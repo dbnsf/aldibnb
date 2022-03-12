@@ -1,7 +1,14 @@
 <li>
   <?php
   $post_price = get_post_meta(get_the_ID(), 'wpDIMS_price', true);
-  $post_city = get_post_meta(get_the_ID(), 'wpDIMS_city', true); ?>
+  $post_city = get_post_meta(get_the_ID(), 'wpDIMS_city', true); 
+  $typelocation = get_the_terms($post->ID, 'type-location');
+if ($typelocation) {
+    foreach ($typelocation as $typeloc) {
+        $typeloc->name;
+    }
+}
+  ?>
 
   <a href="<?php the_permalink(); ?>" class="card">
     <img src="<?php the_post_thumbnail_url() ?>" class="card__image" alt="" />
@@ -10,7 +17,7 @@
         <div class="card__header-text">
           <h3 class="card__title"><?php the_title(); ?></h3>
           <div class="card_price-status">
-            <span class="card__status post_author"><?php the_author();
+            <span class="card__status post_author"><?php echo  $typeloc->name;
                                                     if (get_post_meta(get_the_ID(), 'wpDIMS_city', true)) :
                                                     ?>
                 • <?php echo $post_city ?>
