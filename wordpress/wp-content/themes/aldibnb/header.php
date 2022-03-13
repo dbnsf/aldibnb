@@ -11,6 +11,5 @@
 <body>
     <?php
     get_template_part('components/nav/nav_menu');
-    get_template_part('components/nav/nav_filters'); 
 ?>
 
