@@ -122,12 +122,44 @@ add_action('after_switch_theme', function(){
     flush_rewrite_rules(); 
  
 });
+add_action('manage_post_posts_custom_column', function ($col, $post_id){
+    if($col === 'image'){
+        the_post_thumbnail('thumbnail', $post_id); 
+    }
+    elseif($col === 'prix'){
+        echo get_post_meta($post_id, 'wpDIMS_price', true) . ' €'; 
+    }
+    elseif($col === 'ville'){
+        echo get_post_meta($post_id, 'wpDIMS_city', true); 
+    }
+    elseif($col === 'résumé'){
+        the_excerpt($post_id);
+    }
+}, 10, 2);
 
 
 //FILTERS
 
 add_filter('login_headerurl', 'wpDIMS_change_header_url_login');
 add_filter('admin_footer_text', 'wpDIMS_change_footer_text'); 
+add_filter('manage_post_posts_columns', function ($col) {
+    print_r($col); 
+    return array (
+        'cb' => $col['cb'], 
+        'title' => $col['title'],
+        'résumé' => 'Résumé',
+        'image' => 'Image',
+        'taxonomy-type-logement' => $col['taxonomy-type-logement'],
+        'taxonomy-type-location' => $col['taxonomy-type-location'],
+        'prix' => 'Prix', 
+        'ville' => 'Ville',
+        'comments' => $col['comments'],
+    );
+}); 
+
+
+
+
 
 //COMMENTS
 function your_theme_slug_comments($comment, $args, $depth) {
