@@ -3,6 +3,14 @@
 require_once 'classes/SponsoBox.php';
 $sponso= new SponsoBox('wpDIMS_sponso'); 
 
+require_once 'classes/Price.php';
+$price = new Price('wpDIMS_price');
+
+require_once 'classes/City.php';
+$price = new City('wpDIMS_city');
+
+global $wpdb;
+
 function wpDIMS_clean_role(){
     $admin = get_role('administrator'); 
     $admin->remove_cap('manage_events'); 
@@ -50,43 +58,54 @@ function wpDIMS_nav_menu_link_attributes($atts){
 }
 
 
-//----taxonomy
+// ----taxonomy
 function wpDIMS_register_booking_taxonomy(){
+
     $labels = [
         'name' => 'Type de location',
-        'singular_name' => 'Type de location', 
-        'search_items'=> 'Rechercher un type', 
+        'singular_name' => 'type-location', 
+        'search_items' => 'Rechercher un type', 
         'all_items' => 'Tous les types'
+
     ]; 
 
     $args = [
-        'labels' => $labels,
-        'public' => true,
-        'hierarchical' => true,
-        'show_in_rest' => true, 
-        'show_admin_column' => true
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_in_rest'               => true,
+
+
+        
     ];
 
-    register_taxonomy('type de location', ['post'], $args); 
+    register_taxonomy('type-location', ['post'], $args); 
 }
 function wpDIMS_register_type_taxonomy(){
     $labels = [
         'name' => 'Type de logement',
-        'singular_name' => 'Type de logement', 
+        'singular_name' => 'type-logement', 
         'search_items'=> 'Rechercher un type', 
         'all_items' => 'Tous les types'
     ]; 
-
     $args = [
-        'labels' => $labels,
-        'public' => true,
-        'hierarchical' => true,
-        'show_in_rest' => true, 
-        'show_admin_column' => true
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_in_rest'               => true,
+        
     ];
+    register_taxonomy('type-logement', ['post'], $args); 
 
-    register_taxonomy('type de logement', ['post'], $args); 
+
 }
+
 
 
 //ACTIONS
@@ -103,12 +122,44 @@ add_action('after_switch_theme', function(){
     flush_rewrite_rules(); 
  
 });
+add_action('manage_post_posts_custom_column', function ($col, $post_id){
+    if($col === 'image'){
+        the_post_thumbnail('thumbnail', $post_id); 
+    }
+    elseif($col === 'prix'){
+        echo get_post_meta($post_id, 'wpDIMS_price', true) . ' €'; 
+    }
+    elseif($col === 'ville'){
+        echo get_post_meta($post_id, 'wpDIMS_city', true); 
+    }
+    elseif($col === 'résumé'){
+        the_excerpt($post_id);
+    }
+}, 10, 2);
 
 
 //FILTERS
 
 add_filter('login_headerurl', 'wpDIMS_change_header_url_login');
 add_filter('admin_footer_text', 'wpDIMS_change_footer_text'); 
+add_filter('manage_post_posts_columns', function ($col) {
+    print_r($col); 
+    return array (
+        'cb' => $col['cb'], 
+        'title' => $col['title'],
+        'résumé' => 'Résumé',
+        'image' => 'Image',
+        'taxonomy-type-logement' => $col['taxonomy-type-logement'],
+        'taxonomy-type-location' => $col['taxonomy-type-location'],
+        'prix' => 'Prix', 
+        'ville' => 'Ville',
+        'comments' => $col['comments'],
+    );
+}); 
+
+
+
+
 
 //COMMENTS
 function your_theme_slug_comments($comment, $args, $depth) {
@@ -170,7 +221,7 @@ function wpb_author_info_box( $content ) {
     if ( ! empty( $user_description ) )
     // Author avatar, name, bio
 
-    // $author_details_out .= ' | <a href="' . $user_website .'" target="_blank" rel="nofollow">Website</a></p>';
+    // $author_details_out .= ' | <a href="' . $user_website .'" target="_blank" rel="nofollow">Website</a></>';
     $author_details_out .= '<p class="author_links"><a href="'. $user_posts .'">Toutes les annonces de ' . $display_name . '</a>';  
 
     $author_details .= '<p class="author_details">'. get_avatar( get_the_author_meta('user_email') , 90 ) . '<div>'. '<h5 class="author_name">' . $display_name . '</h5>' . $author_details_out  . '<p class="author_description">' . nl2br( $user_description ).   '</p></div>';
@@ -211,3 +262,20 @@ function wpb_author_info_box( $content ) {
         }
         add_action('customize_register', 'themeslug_theme_customizer');
 
+
+
+// SEARCH POST FORM
+     function custom_search_form( $form, $value = "Search", $post_type = 'post' ) {
+            $form_value = (isset($value)) ? $value : attribute_escape(apply_filters('the_search_query', get_search_query()));
+            $form = '<form method="get" id="searchform" action="' . get_option('search') . '/" >
+            <div>
+                <input  type="hidden" name="post_type"  value="'.$post_type.'" />
+                <input class="form-control" type="text" value="' . $form_value . '" name="s" id="s" />
+                <input class="registration__button" type="submit" id="searchsubmit"  value="'.attribute_escape(__('Search')).'" />
+            </div>
+            </form>';
+            return $form;
+        }
+
+
+ 

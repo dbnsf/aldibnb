@@ -13,10 +13,9 @@ if ($_POST) {
     $error = array();
     if (strpos($username, ' ') !== FALSE) {
         $error['username_space'] = "Username has space";
-
     }
 
-    if (empty($_POST['txtUsername']) || strlen(trim($_POST['txtUsername']))==0) {
+    if (empty($_POST['txtUsername']) || strlen(trim($_POST['txtUsername'])) == 0) {
         $error['username_empty'] = "empty user";
         echo $username;
     }
@@ -39,59 +38,60 @@ if ($_POST) {
 
     if (count($error) == 0) {
         wp_create_user($username, $password, $email);
-        echo "User Created Successfully";
+        echo "<div class='message_welcom'>
+                <div class='message_welcom__titles'>
+                    <h3> <span class='_font-TuesdayNight'>Bienvenue </span><span class='username'>" . $username . ",</span></h3>
+                    <p>Ton compte a bien été crée.</p>
+
+                </div>
+                <div class='message_welcom__image'>
+                    <img class='message_welcom__image' src='https://images.unsplash.com/photo-1645627446035-d9ade996ae42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80' alt='alt'>
+                    <a href='/'>C'est parti !</a>
+                </div>
+              </div>";
+              
         exit();
-    }else{
-        
+    } else {
+
         print_r($error);
-        
     }
 }
 ?>
 
 <header>
-       <div class="header__main">
-        <div class="header__titles">        
-            <h1>Votre inscription en deux cliques</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et</p>
+    <div class="header__main">
+        <div class="header__titles">
+            <h1>Votre inscription en un clic</h1>
+
+            <form method="post" class="registration__form">
+
+                <div>
+                    <input type="text" name="txtUsername" id="txtUsername" class="registration__input" placeholder="Votre pseudo">
+                </div>
+
+                <div>
+                    <input type="email" name="txtEmail" id="txtEmail" class="registration__input" placeholder="Votre email">
+                </div>
+
+                <div>
+                    <input type="password" name="txtPassword" id="txtPassword" class="registration__input" placeholder="Votre mot de passe">
+                </div>
+
+                <div>
+                    <input type="password" name="txtConfirmPassword" id="txtConfirmPassword" class="registration__input" placeholder="Confirmez votre mot de passe">
+                </div>
+
+
+                <input type="submit" name="btnSubmit" class="registration__button registration__annex">
+
+            </form>
+
         </div>
         <div class="header__image">
             <img class="header__image" src="https://images.unsplash.com/photo-1581677787971-4d36fd7a1d35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80" alt="">
         </div>
     </div>
 
-  </header>
-<div class="form">
-    <form method="post">
+</header>
 
-        <p>
-        <label for="txtUsername">Enter username</label>
-        <input type="text" name="txtUsername" id="txtUsername">
-        </p>
-
-        <p>
-        <label for="txtEmail">Enter Email</label>
-        <div>
-        <input type="email" name="txtEmail" id="txtEmail"></div>
-        </p>
-
-        <p>
-        <label for="txtPassword">Enter Password</label>
-        <div>
-        <input type="password" name="txtPassword" id="txtPassword"></div>
-        </p>
-
-        <p>
-        <label for="txtConfirmPassword">Confirm Password</label>
-        <div>
-        <input type="password" name="txtConfirmPassword" id="txtConfirmPassword"></div>
-        </p>
-
-
-        <input type="submit" name="btnSubmit">
-
-    </form>
-</div>
 <?php get_footer() ?>
