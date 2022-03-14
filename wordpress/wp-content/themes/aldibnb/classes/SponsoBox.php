@@ -3,13 +3,10 @@ class SponsoBox
 {
 
     private $metakey;
-    private $price;
 
     public function __construct($metakey)
     {
         $this->metakey = $metakey;
-        $this->price = $metakey . '_price';
-
         $this->register();
     }
 
@@ -30,6 +27,18 @@ class SponsoBox
         );
     }
 
+    public function wpDIMS_metabox_render($post)
+    {
+
+        $checked = get_post_meta($post->ID, $this->metakey, true) ? 'checked' : null;
+?>
+
+        <input type="checkbox" value="true" name="<?= $this->metakey ?>" id="sponso" <?= $checked; ?>/>
+        <label for="sponso">Contenu sponsorisé ?</label><br/>
+
+<?php
+    }
+
     public function wpDIMS_save_metabox($post_id)
     {
         if ($_POST[$this->metakey] === 'true') {
@@ -37,26 +46,5 @@ class SponsoBox
         } else {
             delete_post_meta($post_id, $this->metakey);
         }
-
-        if ($_POST[$this->price] === 'true') {
-            update_post_meta($post_id, $this->price, $_POST[$this->price]);
-        } else {
-            delete_post_meta($post_id, $this->price);
-        }
-    }
-
-
-
-    public function wpDIMS_metabox_render($post)
-    {
-        $checked = get_post_meta($post->ID, $this->metakey, true) ? 'checked' : null;
-        $price = get_post_meta($post->ID, $this->price, true) ? : null; ?>
-
-        <input type="checkbox" value="true" name="<?= $this->metakey ?>" id="sponso" <?= $checked; ?> />
-        <label for="sponso">Contenu sponso ?</label><br/>
-        
-        <label for="price">Prix</label>
-        <input type="text" name="<?= $this->price; ?>" id="price" value="<?= $price; ?>">
-<?php
     }
 }

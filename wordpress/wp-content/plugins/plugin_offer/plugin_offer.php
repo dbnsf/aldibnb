@@ -10,55 +10,53 @@ if(!defined('ABSPATH')){
 }
 
  function display_special_offers(){
-    $query_args = wp_dashboard_recent_posts(
+    $query_args = 
         array(
-			'max'    => 3,
-			'status' => 'publish',
-			'order'  => 'DESC',
-			'title'  => __( 'Specials Offers' ),
-			'id'     => 'published-posts',
-            'sponso' => 'true'
-		)
+			'posts_per_page'    => 3,
+			'post_status' => 'publish',
+            'post_type' => 'post',
+            'relation' => 'AND',
+            array(
+            'meta_query' => array(
+                    'key' => 'meta_key',
+                    'value' => 'wpDIMS_sponso',
+                    'compare' => '=',
+            ),
+            'meta_query' => array(
+                'key' => 'meta_value',
+                'value' => true,
+                'compare' => '=',
+        ),
+        ),
+		
 	);
 	$offer_posts = new WP_Query( $query_args );
 
+    ob_start();
 ?>
 <div>
 <?php
     if($offer_posts->have_posts() ) {
         while ($offer_posts->have_posts() ){
             $offer_posts->the_post();
-            echo $args['title'];
             ?>
                 <div>
-                    <!-- DISPLAY MY VALUES -->
+                        <h3>
+                            <?php 
+                                the_title();
+                                the_post_thumbnail_url();
+                                the_content();  
+                            ?>
+                        </h3>
                 </div>
             <?php
         }
     }
+    wp_reset_postdata();
 ?>
 </div>
 <?php
-};
-?>
-
-<?php
-
-function display_special_offers_init(){
-    add_shortcode('mes offres spéciales', 'display_special_offers');
+return ob_get_clean();
 }
 
-add_action('init', 'display_special_offers_init');
-
- register_deactivation_hook(__FILE__, function(){
-
- });
-
-
-//  add_action("get_header", 
-//     function()
-//     {
-//         echo "tagazog";
-//     });
-
-?>
+    add_shortcode('shortcut_offers', 'display_special_offers');
