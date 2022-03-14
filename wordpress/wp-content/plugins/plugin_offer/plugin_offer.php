@@ -10,7 +10,7 @@ if(!defined('ABSPATH')){
 }
 
  function display_special_offers(){
-    $offer_posts = wp_dashboard_recent_posts(
+    $query_args = wp_dashboard_recent_posts(
         array(
 			'max'    => 3,
 			'status' => 'publish',
@@ -20,16 +20,15 @@ if(!defined('ABSPATH')){
             'sponso' => 'true'
 		)
 	);
-	
- };
+	$offer_posts = new WP_Query( $query_args );
 
 ?>
-
 <div>
 <?php
     if($offer_posts->have_posts() ) {
         while ($offer_posts->have_posts() ){
             $offer_posts->the_post();
+            echo $args['title'];
             ?>
                 <div>
                     <!-- DISPLAY MY VALUES -->
@@ -39,6 +38,9 @@ if(!defined('ABSPATH')){
     }
 ?>
 </div>
+<?php
+};
+?>
 
 <?php
 
