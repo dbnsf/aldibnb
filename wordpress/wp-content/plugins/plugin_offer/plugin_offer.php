@@ -35,7 +35,7 @@ if(!defined('ABSPATH')){
     ob_start();
 ?>
 <div class="plugin">
-<h2>En promo</h2>
+<h1>En promo</h1>
 
 <?php
     if($offer_posts->have_posts() ) {
@@ -51,8 +51,8 @@ the_permalink();   ?> >
                             <?php 
 
                                 the_title();
-                                ?> -
-
+                                ?> 
+</a>
 
         </p>
 
