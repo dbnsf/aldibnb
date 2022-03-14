@@ -34,21 +34,29 @@ if(!defined('ABSPATH')){
 
     ob_start();
 ?>
-<div>
+<div class="plugin">
+<h2>En promo</h2>
+
 <?php
     if($offer_posts->have_posts() ) {
         while ($offer_posts->have_posts() ){
             $offer_posts->the_post();
             ?>
-                <div>
-                        <h3>
+            <div class="plugin__inside">
+                        <p>
+                        <a href=
+
                             <?php 
+the_permalink();   ?> >
+                            <?php 
+
                                 the_title();
-                                the_post_thumbnail_url();
-                                the_content();  
-                            ?>
-                        </h3>
-                </div>
+                                ?> -
+
+                            
+        </p>
+
+        </div>
             <?php
         }
     }
@@ -58,5 +66,4 @@ if(!defined('ABSPATH')){
 <?php
 return ob_get_clean();
 }
-
-    add_shortcode('shortcut_offers', 'display_special_offers');
+add_shortcode('shortcut_offers', 'display_special_offers');
