@@ -10,11 +10,6 @@
             'container' => false
         ]);
         ?>
+        
     </div>
-    <!-- <div>
-        <div class="topnav">
-            <a href="#login" class="login">Login</a>
-            <a href="#signup" class="signup">Sign up</a>
-        </div>
-    </div> -->
   </nav>
