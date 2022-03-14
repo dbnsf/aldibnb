@@ -23,7 +23,7 @@ class SponsoBox
     {
         add_meta_box(
             'sponso',
-            'Contenu sponsorisé',
+            'Contenu sponsorisé ?',
             [$this, 'wpDIMS_metabox_render'],
             'post',
             'side'
@@ -53,8 +53,9 @@ class SponsoBox
         $price = get_post_meta($post->ID, $this->price, true) ? : null; ?>
 
         <input type="checkbox" value="true" name="<?= $this->metakey ?>" id="sponso" <?= $checked; ?> />
-        <label for="sponso">Contenu sponso ?</label>
-
+        <label for="sponso">Contenu sponso ?</label><br/>
+        
+        <label for="price">Prix</label>
         <input type="text" name="<?= $this->price; ?>" id="price" value="<?= $price; ?>">
 <?php
     }
