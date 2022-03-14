@@ -135,10 +135,36 @@ add_action('manage_post_posts_custom_column', function ($col, $post_id) {
     }
 }, 10, 2);
 
+add_action('pre_get_posts', function($query){
+    if(is_admin() || $query->is_main_query()){
+        return;
+    }
+    if(get_query_var('city')) {
+        $meta_query = $query->get('meta_query', []);
+        $meta_query[] = array(
+            'key' => 'wpDIMS_city',
+            'compare' => 'EXISTS'
+        );
+        $query->set('meta_query', $meta_query); 
+
+    }
+});
+add_action('wp_enqueue_scripts', 'your_theme_slug_public_scripts');
+add_action('the_content', 'wpb_author_info_box');
+add_action('customize_register', 'themeslug_theme_customizer');
+
+
 
 //FILTERS
+add_filter('query_vars', function ($params) {
+    $params[] = 'city';
+    $params[] = 'location';
+    $params[] = 'logement';
+    $params[] = 'price';
+    $params[] = 's';
 
-// add_filter('login_headerurl', 'wpDIMS_change_header_url_login');
+    return $params;
+});
 add_filter('admin_footer_text', 'wpDIMS_change_footer_text');
 add_filter('manage_post_posts_columns', function ($col) {
     print_r($col);
@@ -198,8 +224,6 @@ function your_theme_slug_comments($comment, $args, $depth)
 
 // Enqueue comment-reply
 
-add_action('wp_enqueue_scripts', 'your_theme_slug_public_scripts');
-
 function your_theme_slug_public_scripts()
 {
     if (!is_admin()) {
@@ -212,91 +236,37 @@ function your_theme_slug_public_scripts()
 // FETCH AUTHOR INFORMATIONS
 function wpb_author_info_box($content)
 {
-
     global $post;
-
-    // Detect if it is a single post with a post author
     if (is_single() && isset($post->post_author)) {
-
-        // Get author's display name
         $display_name = get_the_author_meta('display_name', $post->post_author);
-
-        // If display name is not available then use nickname as display name
         if (empty($display_name))
-            $display_name = get_the_author_meta('nickname', $post->post_author);
-
-        // Get author's biographical information or description
+        $display_name = get_the_author_meta('nickname', $post->post_author);
         $user_description = get_the_author_meta('user_description', $post->post_author);
-
-        // Get author's website URL
         $user_website = get_the_author_meta('url', $post->post_author);
-
-        // Get link to the author archive page
         $user_posts = get_author_posts_url(get_the_author_meta('ID', $post->post_author));
-
         if (!empty($display_name))
-
-            // $author_details = '<p class="author_name">About ' . $display_name . '</p>';
-
             if (!empty($user_description))
-                // Author avatar, name, bio
-
-                // $author_details_out .= ' | <a href="' . $user_website .'" target="_blank" rel="nofollow">Website</a></>';
                 $author_details_out = '<p class="author_links"><a href="' . $user_posts . '">Toutes les annonces de ' . $display_name . '</a>';
 
         $author_details = '<p class="author_details">' . get_avatar(get_the_author_meta('user_email'), 90) . '<div>' . '<h5 class="author_name">' . $display_name . '</h5>' . $author_details_out  . '<p class="author_description">' . nl2br($user_description) .   '</p></div>';
-
-        // Check if author has a website in their profile
         if (!empty($user_website)) {
-
-            // Display author website link
-
         } else {
-            // if there is no author website then just close the paragraph
             $author_details .= '</p>';
         }
-
-        // Pass all this info to post content
         $content = $content . '<div class="author_bio_section" >' . $author_details . '</div>';
     }
     return $content;
 }
-
-// Add our function to the post content filter
-add_action('the_content', 'wpb_author_info_box');
-
-// Allow HTML in author bio section
 remove_filter('pre_user_description', 'wp_filter_kses');
 
 
 // CUSTOM LOGO MENU
 function themeslug_theme_customizer($wp_customize)
 {
-
     $wp_customize->add_setting('mytheme_logo');
-
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'mytheme_logo', array(
         'label'    => 'Logo',
         'section'  => 'mytheme_logo_section',
         'settings' => 'mytheme_logo',
     )));
 }
-add_action('customize_register', 'themeslug_theme_customizer');
-
-
-// SEARCH POST FORM
-//  function custom_search_form( $form, $value = "Search", $post_type = 'post' ) {
-//         $form_value = (isset($value)) ? $value : esc_attr__(apply_filters('the_search_query', get_search_query()));
-//         $form = '<form method="get" id="searchform" action="' . get_option('search') . '/" >
-//         <div>
-//             <input  type="hidden" name="post_type"  value="'.$post_type.'" />
-//             <input class="form-control" type="text" value="' . $form_value . '" name="s" id="s" />
-//             <input class="registration__button" type="submit" id="searchsubmit"  value="'.esc_attr(__('Search')).'" />
-//         </div>
-//         </form>';
-//         return $form;
-//     }
-
-
-
-
