@@ -1190,3 +1190,19 @@ ul.children {
     display: none;
   }
 }
+
+.plugin {
+  display: flex;
+  width: 90%;
+  background-color: #1b1b1b;
+  margin: 5% 5% 0% 5%;
+  padding: 20px;
+  color: white;
+}
+.plugin h2 {
+  padding-right: 3em;
+}
+
+.plugin__inside {
+  padding: 10px;
+}
